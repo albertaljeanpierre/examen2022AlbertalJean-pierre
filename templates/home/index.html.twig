@@ -6,8 +6,12 @@
 
 
 <div class="example-wrapper">
-    <h1>Liste des chansons </h1>
-
+    <h1>Liste des chansons   </h1>
+    <ul>
+        {% for chanson in chansons %}
+            <li>{{ chanson.titre }}</li>
+        {% endfor %}
+    </ul>
 
 </div>
 {% endblock %}
