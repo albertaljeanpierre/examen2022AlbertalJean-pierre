@@ -13,15 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ChansonController extends AbstractController
 {
-    /**
-     * @Route("/chanson", name="app_chanson")
-     */
-    public function index(): Response
-    {
-        return $this->render('chanson/index.html.twig', [
-            'controller_name' => 'ChansonController',
-        ]);
-    }
+
 
     /**
      * @Route("/chanson/new", name="app_chanson_new")
@@ -46,6 +38,17 @@ class ChansonController extends AbstractController
 
         return $this->render('chanson/index.html.twig', [
                 'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/chanson/{id}", name="app_chanson")
+     */
+    public function detailChanson($id , EntityManagerInterface $entityManager): Response
+    {
+        $chanson = $entityManager->getRepository(Chanson::class)->find($id);
+        return $this->render('chanson/detailChanson.html.twig', [
+            'chanson' => $chanson
         ]);
     }
 }

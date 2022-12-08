@@ -9,7 +9,7 @@
     <h1>Liste des chansons   </h1>
     <ul>
         {% for chanson in chansons %}
-            <li>{{ chanson.titre }}</li>
+            <li><a href="{{ path('app_chanson',  {id: chanson.id }) }}">{{ chanson.titre }}</a></li>
         {% endfor %}
     </ul>
 

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un chanson{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1>Description d'une chanson</h1>
+    <p>Titre de la chanson:  {{ chanson.titre }}. </p>
+    <p><small> Sortie le {{ chanson.dateSortie | date('d/m/Y') }} Genre: {{ chanson.genre }}</small>   </p>
+    <p>Nom de l’album:  {{ chanson.nom }}</p>
+    <p>Auteur:  {{ chanson.auteur }},  Votes:   {{ chanson.votes }} </p>
+    <p>Paroles: </p> <div>{{ chanson.paroles }}</div>
+
+</div>
+{% endblock %}
